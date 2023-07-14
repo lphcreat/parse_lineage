@@ -1,0 +1,1 @@
+insert into table db.temp select * from (select * from warehouse.fact_pl_loan) ts
