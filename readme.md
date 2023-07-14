@@ -4,6 +4,7 @@
  + download get_tb_lineage.py
 
 ## 说明
+ + 解析conf\sql中的表之间的血缘关系，方便梳理数仓结构
  + 每个文件sink表只有一个，如果存在多个解析时只会保留第一个
  + 目标表识别使用insert 语句作为标识
  + 解析字段依赖可以使用该包 https://github.com/reata/sqllineage
