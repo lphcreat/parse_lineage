@@ -12,4 +12,6 @@
 ## 使用
  + python get_tb_lineage.py file_name/file_directory
  + python get_tb_lineage.py file_name/file_directory filter_table_name
+ + result 
+    ![表关系](/table_graph.jpg "表关系图")
  + example python3.10 ./get_tb_lineage.py ./example.conf

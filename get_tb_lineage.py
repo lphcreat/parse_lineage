@@ -11,7 +11,7 @@ def get_randColor(seed):
     b = random.randint(0, 200)
     return '#%02x%02x%02x' % (r,g,b)
 
-def get_edges(dir,filter_tb):
+def get_edges(dir):
     file_list=[]
     if isinstance(dir,list):
         file_list=dir
@@ -35,6 +35,10 @@ def get_edges(dir,filter_tb):
             target=re.findall(target_table_regex,conf_str)[:1]*len(source)
         sources.extend(source)
         targets.extend(target)
+    return sources,targets
+
+def get_adj(dir,filter_tb):
+    sources,targets=get_edges(dir)
     if filter_tb:
         import pandas as pd
         df_temp=pd.DataFrame({'sour':sources,'targ':targets})
@@ -45,7 +49,7 @@ def get_edges(dir,filter_tb):
     return adjmat
 
 def draw_graph(dir,filter_tb=False):
-    adjmat=get_edges(dir,filter_tb)
+    adjmat=get_adj(dir,filter_tb)
     d3 = d3graph(support='li')
     d3.graph(adjmat)
     nodes=d3.node_properties.keys()
